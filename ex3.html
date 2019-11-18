@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>소수 출력 프로그램(1~10000)</title>
+</head>
+<body>
+    <h1>1~10000까지 모든 소수 출력 프로그램</h1>
+    <script>
+        numbers = {};
+        numbers.all = [];
+        numbers.prime = [];
+        numbers.notPrime = [];
+
+        //addAll함수 : 빈 배열인 numbers.all에 모든 숫자 넣기
+        numbers.addAll = function(max_num) {
+            for (var i = 0; i < max_num-1; i++) {
+                numbers.all[i] = i+2;
+            }
+            console.log(numbers.all);
+        }
+
+        numbers.addAll(10000);
+
+        //isPrime함수 : 그 숫자가 소수인지 아닌지 판별(맞으면 true, 아니면 false)
+        numbers.isPrime = function(number) {
+            var isPrime = true;
+            for (var j = 2; j < number; j++) {
+                if (number % j === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            return isPrime;
+        }
+
+        //numbers.addPrime함수 : 소수를 numbers.prime 배열에 추가한다.
+        numbers.addPrime = function(number) {
+            for(var m = 0; m < number-1; m++) {
+            if(numbers.isPrime(numbers.all[m])) {
+                var x = numbers.all[m];
+                numbers.prime.push(x); 
+            } else {
+                var y = numbers.all[m];
+                numbers.notPrime.push(y);
+            }
+            }   
+        }
+        
+        numbers.addPrime(10000);
+
+        //numbers.getAllPrimes함수 : 찾아낸 모든 소수들을 문자열로 바꾸어 보기 좋게 출력.
+        numbers.getAllPrimes = function() {
+            for(n = 0; n < numbers.prime.length; n++) {
+                console.log(numbers.prime[n] + "는(은) 소수입니다.");
+            }
+        }
+        
+        numbers.getAllPrimes();
+
+        //numbers.isPrime = function(number);
+        //numbers.addPrime = function(number);
+        //numbers.getAllPrimes = function();
+        //numbers.addAll = function(max_num);
+    </script>
+</body>
+</html>
