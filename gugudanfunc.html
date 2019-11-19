@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>구구단 전체 출력</h1>
+    <script>
+        var result = [];
+        var result2 = [];
+        var gugudanArrayInsert = function() {
+            for (var n = 2; n < 10; n++) {
+                //calculate 
+                for (var i = 0; i < 9; i++) {
+                    result.push(n * (i+1));
+                }
+            }
+        };        
+        var gugudanPrint = function() {
+            for (var i = 2; i < 10; i++) {
+                for (var j = 0; j < 9; j++) {
+                    result2.push(i + " * " + (j+1) + " = ");
+                }
+            }
+        };
+        var main = function() {
+            for (var i = 0; i < result.length; i++) {
+                if (i === 0) {
+                    document.write("<h2>2단</h2>");
+                    document.write(result2[i] + result[i] + "<br>");
+                } else if (i === 9) {
+                    document.write("<h2>3단</h2>");
+                    document.write(result2[i] + result[i] + "<br>");
+                } else if (i === 18) {
+                    document.write("<h2>4단</h2>");
+                    document.write(result2[i] + result[i] + "<br>");
+                } else if (i === 27) {
+                    document.write("<h2>5단</h2>");
+                    document.write(result2[i] + result[i] + "<br>");
+                } else if (i === 36) {
+                    document.write("<h2>6단</h2>");
+                    document.write(result2[i] + result[i] + "<br>");
+                } else if (i === 45) {
+                    document.write("<h2>7단</h2>");
+                    document.write(result2[i] + result[i] + "<br>");
+                } else if (i === 54) {
+                    document.write("<h2>8단</h2>");
+                    document.write(result2[i] + result[i] + "<br>");
+                } else if (i === 63) {
+                    document.write("<h2>9단</h2>");
+                    document.write(result2[i] + result[i] + "<br>");
+                } else {
+                document.write(result2[i] + result[i] + "<br>");
+                }
+            }
+        };
+
+        gugudanArrayInsert(); //구구단 계산값 배열에 삽입
+        gugudanPrint(); // 가독성을 위해 i * j = 꼴 문자열 출력
+        main(); //위 두 함수를 합쳐 구구단 값 출력
+    </script>
+</body>
+</html>
