@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var strN = prompt("계산을 시작합니다.");
+        var CalcArr = strN.split("");
+        //몇번째 숫자인지만 출력하기(대신에 배열 인자를 잘 넣어야함)
+        
+        var NumberSearch = function(num, Arr) {
+            var N = "";
+            for (var i = 0; i < Arr.length; i++) {
+                if (Arr[i] === "+") {
+                    break;
+                } else if (Arr[i] === "-") {
+                    break;
+                } else if (Arr[i] === "*") {
+                    break;
+                } else if (Arr[i] === "/") {
+                    break;
+                } 
+                N += Arr[i];
+                var n = Number(N);
+            }
+            return n;
+        }
+
+        //배열 인자 값 넣기위해 함수 만들기
+        var ArrayCuting = function(Arr) {
+            for (var i = 0; i < Arr.length; i++) {
+                if (Arr[i] === "+") {
+                    var removeArr = Arr.slice(i+1, Arr.length);
+                    break;
+                } else if (Arr[i] === "-") {
+                    var removeArr = Arr.slice(i+1, Arr.length);
+                    break;
+                } else if (Arr[i] === "*") {
+                    var removeArr = Arr.slice(i+1, Arr.length);
+                    break;
+                } else if (Arr[i] === "/") {
+                    var removeArr = Arr.slice(i+1, Arr.length);
+                    break;
+                } 
+            }
+            return removeArr;
+        }
+
+        var OperatorSearchAndResult = function(n1, n2, Arr) {
+            var isAdd = true;
+            var isSubtract = true;
+            var isMultiply = true;
+            var isDivide = true;
+            for (var i = 0; i < 23; i++) {
+                if (Arr[i] === "+") {
+                    isAdd = false;
+                    break;
+                } else if (Arr[i] === "-") {
+                    isSubtract = false;
+                    break;
+                } else if (Arr[i] === "*") {
+                    isMultiply = false;
+                    break;
+                } else if (Arr[i] === "/") {
+                    isDivide = false;
+                    break;
+                } 
+            }
+            if (isAdd === false) {
+                var result = n1 + n2;
+            } else if (isSubtract === false) {
+                var result = n1 - n2;
+            } else if (isMultiply === false) {
+                var result = n1 * n2;
+            } else if (isDivide === false) {
+                var result = parseInt(n1 / n2);
+            } 
+            return result; 
+        };
+        
+        var n1 = NumberSearch(1, CalcArr);
+        console.log("첫 숫자는 " + n1);
+        var CalcArr1 = ArrayCuting(CalcArr);
+        console.log("첫번째 연산자 이후의 값 " + CalcArr1);
+        var n2 = NumberSearch(2, CalcArr1);
+        console.log("두번째 숫자는 " + n2);
+        var CalcArr2 = ArrayCuting(CalcArr1);
+        console.log("두번째 연산자 이후의 값 " + CalcArr2);
+        var result = OperatorSearchAndResult(n1, n2, CalcArr);
+
+        var n3 = NumberSearch(3, CalcArr2);
+        var result2 = OperatorSearchAndResult(result, n3, CalcArr1);
+
+        var strN = prompt("계산을 시작합니다.");
+        var CalcArr = strN.split("");
+
+        var n1 = NumberSearch(1, CalcArr);
+        var CalcArr1 = ArrayCuting(CalcArr);
+        var n2 = NumberSearch(2, CalcArr1);
+        var result = OperatorSearchAndResult(n1, n2, CalcArr);
+        var CalcArr2 = ArrayCuting(CalcArr1);
+        var n3 = NumberSearch(3, CalcArr2);
+        var result1 = OperatorSearchAndResult(result, n3, CalcArr2);
+        var CalcArr3 = ArrayCuting(CalcArr2);
+        var n4 = NumberSearch(4, CalcArr3);
+        var result2 = OperatorSearchAndResult(result1, n4, CalcArr3);
+        var CalcArr4 = ArrayCuting(CalcArr3);
+        var n5 = NumberSearch(5, CalcArr4);
+        var result3 = OperatorSearchAndResult(result2, n5, CalcArr4);
+        var CalcArr5 = ArrayCuting(CalcArr4);
+        var n6 = NumberSearch(6, CalcArr5);
+        var result4 = OperatorSearchAndResult(result3, n6, CalcArr5);
+    
+
+
+
+
+
+
+        calculrator = {};
+        calculrator.NumberSearch = function(num, Arr) {
+            var N = "";
+            for (var i = 0; i < Arr.length; i++) {
+                if (Arr[i] === "+") {
+                    break;
+                } else if (Arr[i] === "-") {
+                    break;
+                } else if (Arr[i] === "*") {
+                    break;
+                } else if (Arr[i] === "/") {
+                    break;
+                } 
+                N += Arr[i];
+                var n = Number(N);
+            }
+            return n;
+        };
+        calculrator.ArrayCuting = function(Arr) {
+            for (var i = 0; i < Arr.length; i++) {
+                if (Arr[i] === "+") {
+                    var removeArr = Arr.slice(i+1, Arr.length);
+                    break;
+                } else if (Arr[i] === "-") {
+                    var removeArr = Arr.slice(i+1, Arr.length);
+                    break;
+                } else if (Arr[i] === "*") {
+                    var removeArr = Arr.slice(i+1, Arr.length);
+                    break;
+                } else if (Arr[i] === "/") {
+                    var removeArr = Arr.slice(i+1, Arr.length);
+                    break;
+                } 
+            }
+            return removeArr;
+        };
+        
+
+    </script>
+</body>
+</html>

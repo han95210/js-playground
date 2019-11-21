@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>문자열 계산기 만들기</title>
+</head>
+<body>
+    <h2>문자열 계산기 만들어보기(초보자버전)</h2>
+    <script>
+        //한자리 수끼리 사칙연산 계산기
+        /*var strN = prompt("계산을 시작합니다.");
+        var arr = strN.split("");
+        if (arr[1] === "+") {
+            var result = Number(arr[0]) + Number(arr[2]);
+            document.write(result);
+        } else if (arr[1] === "*") {
+            var result = Number(arr[0]) * Number(arr[2]);
+            document.write(result);
+        }  else if (arr[1] === "-") {
+            var result = Number(arr[0]) - Number(arr[2]);
+            document.write(result);
+        } else {
+            var result = Number(arr[0]) / Number(arr[2]);
+            document.write(parseInt(result));
+        }
+
+
+        var strN = prompt("계산을 시작합니다."); 
+        var CalcArr = strN.split(""); //문자열을 1개씩 문자로 이뤄진 배열로 만듦
+
+        for(var i = 0; i < n; i++) {
+
+        }
+
+        var NumberInsert = function() {
+            var NumberArr1 = "";
+            for(var i = 0; i < n; i++) {
+                NumberArr1 += CalcArr[i];
+                if (Number(arr[i]) === NaN) {
+                    break;
+                    var n1 = Number(NumberArr1);
+            }
+            console.log(n1);
+        }
+    };*/
+
+        /*
+        //n자리수 계산하기(연산자 1개)
+        var strN = prompt("계산을 시작합니다."); 
+        var CalcArr = strN.split(""); //문자열을 1개씩 문자로 이뤄진 배열로 만듦
+        
+        var NumberArr1 = "";
+        var NumberArr2 = "";
+        for(var i = 0; i < CalcArr.length; i++) {
+            if (CalcArr[i] === "+") {
+                break;    
+            } else if (CalcArr[i] === "-") {
+                break;
+            } else if (CalcArr[i] === "*") {
+                break;
+            } else if (CalcArr[i] === "/") {
+                break;
+            }
+                NumberArr1 += CalcArr[i];  
+        }
+        console.log(NumberArr1);
+        var n1 = Number(NumberArr1);
+        n1;
+
+        for (var j = 0; j < CalcArr.length; j++) {
+            if (CalcArr[j] === "+") {
+                var  d = CalcArr.slice(j+1, j+100);
+                NumberArr2 = d.join("");
+            } else if (CalcArr[j] === "-") {
+                var  d = CalcArr.slice(j+1, j+100);
+                NumberArr2 = d.join("");
+            } else if (CalcArr[j] === "*") {
+                var  d = CalcArr.slice(j+1, j+100);
+                NumberArr2 = d.join("");
+            } else if (CalcArr[j] === "/") {
+                var  d = CalcArr.slice(j+1, j+100);
+                NumberArr2 = d.join("");
+            }
+        }
+        console.log(NumberArr2);
+        var n2 = Number(NumberArr2);
+        n2;
+
+        if (CalcArr.indexOf("+") != -1) {
+            var result1 = document.write(n1 + n2);
+        } else if (CalcArr.indexOf("-") != -1) {
+            var result1 = document.write(n1 - n2);
+        } else if (CalcArr.indexOf("*") != -1) {
+            var result1 = document.write(n1 * n2);
+        } else if (CalcArr.indexOf("/") != -1) {
+            var result1 = document.write(parseInt(n1 / n2));
+        }
+*/
+
+
+        //한자리수이면서 연산도 여러번 할 수 있게 하기
+        
+        var strN = prompt("계산을 시작합니다."); 
+        var CalcArr = strN.split(""); //문자열을 1개씩 문자로 이뤄진 배열로 만듦
+        
+        var NumberArr1 = "";
+        var NumberArr2 = "";
+        var NumberArr3 = "";
+        for(var i = 0; i < CalcArr.length; i++) {
+            if (CalcArr[i] === "+") {
+                break;    
+            } else if (CalcArr[i] === "-") {
+                break;
+            } else if (CalcArr[i] === "*") {
+                break;
+            } else if (CalcArr[i] === "/") {
+                break;
+            }
+                NumberArr1 += CalcArr[i];  
+        }
+        console.log(NumberArr1);
+        var n1 = Number(NumberArr1);
+        n1;
+
+        for (var j = 0; j < CalcArr.length; j++) {
+            if (CalcArr[j] === "+") {
+                var  d = CalcArr.slice(j+1, j+100);
+                NumberArr2 = d.join("");
+                break;
+            } else if (CalcArr[j] === "-") {
+                var  d = CalcArr.slice(j+1, j+100);
+                NumberArr2 = d.join("");
+                break;
+            } else if (CalcArr[j] === "*") {
+                var  d = CalcArr.slice(j+1, j+100);
+                NumberArr2 = d.join("");
+                break;
+            } else if (CalcArr[j] === "/") {
+                var  d = CalcArr.slice(j+1, j+100);
+                NumberArr2 = d.join("");
+                break;
+            }
+        }
+        console.log(NumberArr2);
+        var n2 = Number(NumberArr2);
+        n2;
+
+        var f = function (Arr) {
+            var NumberArr = "";
+            for (var i = 0; i < Arr; i++) {
+                if (Arr[i] === "+") {
+                    var n = Arr.slice(i+1, i+100);
+                    NumberArr = n.join("");
+                } else if (Arr[i] === "-") {
+                    var n = Arr.slice(i+1, i+100);
+                    NumberArr = n.join("");
+                } else if (Arr[i] === "*") {
+                    var n = Arr.slice(i+1, i+100);
+                    NumberArr = n.join("");
+                } else if (Arr[i] === "/") {
+                    var n = Arr.slice(i+1, i+100);
+                    NumberArr = n.join("");
+                }
+            }
+        };
+
+
+        for (var k = 0; k < d.length; k++) {
+            if (d[k] === "+") {
+                var  d2 = d.slice(k+1, k+100);
+                NumberArr3 = d2.join("");
+            } else if (d[k] === "-") {
+                var  d2 = d.slice(k+1, k+100);
+                NumberArr3 = d2.join("");
+            } else if (d[k] === "*") {
+                var  d2 = d.slice(k+1, k+100);
+                NumberArr3 = d2.join("");
+            } else if (d[k] === "/") {
+                var  d2 = d.slice(k+1, k+100);
+                NumberArr3 = d2.join("");
+            }
+        }
+        console.log(NumberArr3);
+        var n3 = Number(NumberArr3);
+        n3;
+
+        if (CalcArr.indexOf("+") != -1) {
+            var result1 = document.write(n1 + n2);
+        } else if (CalcArr.indexOf("-") != -1) {
+            var result1 = document.write(n1 - n2);
+        } else if (CalcArr.indexOf("*") != -1) {
+            var result1 = document.write(n1 * n2);
+        } else if (CalcArr.indexOf("/") != -1) {
+            var result1 = document.write(parseInt(n1 / n2));
+        }
+
+
+
+        var strN = prompt("계산을 시작합니다."); 
+        var CalcArr = strN.split(""); //문자열을 1개씩 문자로 이뤄진 배열로 만듦
+        
+        NumberArr1 = "";
+        for (var i = 0; i < 23; i++) {
+            if (CalcArr[i] === "+") {
+                var CalcArr1 = CalcArr.slice(i+1, i+20);
+                break;
+            } else if (CalcArr[i] === "-") {
+                var CalcArr1 = CalcArr.slice(i+1, i+20);
+                break;
+            } else if (CalcArr[i] === "*") {
+                var CalcArr1 = CalcArr.slice(i+1, i+20);
+                break;
+            } else if (CalcArr[i] === "/") {
+                var CalcArr1 = CalcArr.slice(i+1, i+20);
+                break;
+            }
+            NumberArr1 += CalcArr[i];
+
+        }
+        console.log(NumberArr1);
+        var n1 = NumberArr1;
+        n1;
+
+        NumberArr2 = "";
+        for (var j = 0; j < 23; j++) {
+            if (CalcArr1[j] === "+") {
+                var CalcArr2 = CalcArr1.slice(j+1, j+20);
+                break;
+            } else if (CalcArr1[j] === "-") {
+                var CalcArr2 = CalcArr1.slice(j+1, j+20);
+                break;
+            } else if (CalcArr1[j] === "*") {
+                var CalcArr2 = CalcArr1.slice(j+1, j+20);
+                break;
+            } else if (CalcArr1[j] === "/") {
+                var CalcArr2 = CalcArr1.slice(j+1, j+20);
+                break;
+            }
+            NumberArr2 += CalcArr1[j];
+
+        }
+        console.log(NumberArr2);
+        var n2 = NumberArr2;
+        n2;
+
+        NumberArr3 = "";
+        for (var k = 0; k < 23; k++) {
+            if (CalcArr2[k] === "+") {
+                var CalcArr3 = CalcArr2.slice(k+1, k+20);
+                break;
+            } else if (CalcArr1[k] === "-") {
+                var CalcArr3 = CalcArr2.slice(k+1, k+20);
+                break;
+            } else if (CalcArr1[k] === "*") {
+                var CalcArr3 = CalcArr2.slice(k+1, k+20);
+                break;
+            } else if (CalcArr1[k] === "/") {
+                var CalcArr3 = CalcArr2.slice(k+1, k+20);
+                break;
+            }
+            NumberArr3 += CalcArr2[k];
+
+        }
+        console.log(NumberArr3);
+        var n3 = NumberArr3;
+        n3;
+
+
+        var strN = prompt("계산을 시작합니다.");
+        var CalcArr = strN.split("");
+
+        var isAdd = true;
+        var isSubtract = true;
+        var isMultiply = true;
+        var isDivide = true;
+       
+       //첫번째 숫자 알아내기
+        var N1 = "";
+        for (var i = 0; i < CalcArr.length; i++) {
+            if (CalcArr[i] === "+") {
+                var removeArr = CalcArr.slice(i+1, CalcArr.length);
+                isAdd = false;
+                break;
+            } else if (CalcArr[i] === "-") {
+                var removeArr = CalcArr.slice(i+1, CalcArr.length);
+                isSubtract = false;
+                break;
+            } else if (CalcArr[i] === "*") {
+                var removeArr = CalcArr.slice(i+1, CalcArr.length);
+                isMultiply = false;
+                break;
+            } else if (CalcArr[i] === "/") {
+                var removeArr = CalcArr.slice(i+1, CalcArr.length);
+                isDivide = false;
+                break;
+            } 
+            N1 += CalcArr[i];
+            var n1 = Number(N1);
+        }
+        console.log("첫번째 숫자는 " + N1 + "입니다."); // 첫번째숫자
+        console.log(removeArr); //첫연산 제거한 배열
+        
+        //두번째 숫자 알아내기
+        var N2 = "";
+        for (var j = 0; j < removeArr.length; j++) {
+            if (removeArr[j] === "+") {
+                var removeArr2 = removeArr.slice(j+1, removeArr.length);
+                break;
+            } else if (removeArr[j] === "-") {
+                var removeArr2 = removeArr.slice(j+1, removeArr.length);
+                break;
+            } else if (removeArr[j] === "*") {
+                var removeArr2 = removeArr.slice(j+1, removeArr.length);
+                break;
+            } else if (removeArr[j] === "/") {
+                var removeArr2 = removeArr.slice(j+1, removeArr.length);
+                break;
+            }
+            N2 += removeArr[j];
+            var n2 = Number(N2);
+        }
+        console.log("두번째 숫자는 " + N2 + "입니다."); //두번째 숫자
+        console.log(removeArr2); //두번째 연산 제거한 배열
+
+        //첫결과알아내기(n1 +,-,*,/ n2)
+        if (isAdd === false) {
+            var result = n1 + n2;
+            isAdd = true;
+        } else if (isSubtract === false) {
+            var result = n1 - n2;
+            isSubtract = true;
+        } else if (isMultiply === false) {
+            var result = n1 * n2;
+            isMultiply = true;
+        } else if (isDivide === false) {
+            var result = parseInt(n1 / n2);
+            isDivide = true;
+        }
+        console.log(result); // 첫번째결과
+
+        //세번째숫자알아내기
+        var N3 = "";
+        for (var k = 0; k < removeArr2.length; k++) {
+            if (removeArr2[k] === "+") {
+                var removeArr3 = removeArr2.slice(k+1, removeArr2.length);
+                break;
+            } else if (removeArr2[k] === "-") {
+                var removeArr3 = removeArr2.slice(k+1, removeArr2.length);
+                break;
+            } else if (removeArr2[k] === "*") {
+                var removeArr3 = removeArr2.slice(k+1, removeArr2.length);
+                break;
+            } else if (removeArr2[k] === "/") {
+                var removeArr3 = removeArr2.slice(k+1, removeArr2.length);
+                break;
+            }
+            N3 += removeArr2[k];
+            var n3 = Number(N3);
+        }
+        console.log("세번째 숫자는 " + N3 + "입니다."); //세번째 숫자
+        console.log(removeArr3); //세번째 연산 제거한 배열
+
+        //두번째 연산자 알아내기
+        for (var j = 0; j < removeArr.length; j++) {
+            if (removeArr[j] === "+") {
+                isAdd = false;
+                break;
+            } else if (removeArr[j] === "-") {
+                isSubtract = false;
+                break;
+            } else if (removeArr[j] === "*") {
+                isMultiply = false;
+                break;
+            } else if (removeArr[j] === "/") {
+                isDivide = false;
+                break;
+            }
+        };
+
+        if (isAdd === false) {
+            var result2 = result + n3;
+            isAdd = true;
+        } else if (isSubtract === false) {
+            var result2 = result - n3;
+            isSubtract = true;
+        } else if (isMultiply === false) {
+            var result2 = result * n3;
+            isMultiply = true;
+        } else if (isDivide === false) {
+            var result2 = parseInt(result / n3);
+            isDivide = true;
+        }
+        console.log(result2); // 두번째결과 ((a + b) + c) = ?
+        
+        //네번째숫자알아내기
+        var N4 = "";
+        for (var m = 0; m < removeArr3.length; m++) {
+            if (removeArr3[m] === "+") {
+                var removeArr4 = removeArr3.slice(m+1, removeArr3.length);
+                break;
+            } else if (removeArr3[m] === "-") {
+                var removeArr4 = removeArr3.slice(m+1, removeArr3.length);
+                break;
+            } else if (removeArr3[m] === "*") {
+                var removeArr4 = removeArr3.slice(m+1, removeArr3.length);
+                break;
+            } else if (removeArr3[m] === "/") {
+                var removeArr4 = removeArr3.slice(m+1, removeArr3.length);
+                break;
+            }
+            N4 += removeArr3[m];
+            var n4 = Number(N4);
+        }
+        console.log("네번째 숫자는 " + N4 + "입니다."); //네번째 숫자
+        console.log(removeArr4); //네번째 연산 제거한 배열
+
+        //세번째 연산자 찾기
+        for (var n = 0; n < removeArr2.length; n++) {
+            if (removeArr2[n] === "+") {
+                isAdd = false;
+                break;
+            } else if (removeArr2[n] === "-") {
+                isSubtract = false;
+                break;
+            } else if (removeArr2[n] === "*") {
+                isMultiply = false;
+                break;
+            } else if (removeArr2[n] === "/") {
+                isDivide = false;
+                break;
+            }
+        };
+
+        if (isAdd === false) {
+            var result3 = result2 + n4;
+            isAdd = true;
+        } else if (isSubtract === false) {
+            var result3 = result2 - n4;
+            isSubtract = true;
+        } else if (isMultiply === false) {
+            var result3 = result2 * n4;
+            isMultiply = true;
+        } else if (isDivide === false) {
+            var result3 = parseInt(result2 / n4);
+            isDivide = true;
+        }
+        console.log(result3); // 세번째결과 (((a + b) + c) + d) = ?
+
+        //다섯번째숫자알아내기
+        var N5 = "";
+        for (var p = 0; p < removeArr4.length; p++) {
+            if (removeArr4[p] === "+") {
+                var removeArr5 = removeArr4.slice(p+1, removeArr4.length);
+                break;
+            } else if (removeArr4[p] === "-") {
+                var removeArr5 = removeArr4.slice(p+1, removeArr4.length);
+                break;
+            } else if (removeArr4[p] === "*") {
+                var removeArr5 = removeArr4.slice(p+1, removeArr4.length);
+                break;
+            } else if (removeArr4[p] === "/") {
+                var removeArr5 = removeArr4.slice(p+1, removeArr4.length);
+                break;
+            }
+            N5 += removeArr4[p];
+            var n5 = Number(N5);
+        }
+        console.log("다섯번째 숫자는 " + N5 + "입니다."); //다섯번째 숫자
+        console.log(removeArr5); //다섯번째 연산 제거한 배열
+
+        //네번째 연산자 찾기
+        for (var q = 0; q < removeArr3.length; q++) {
+            if (removeArr3[q] === "+") {
+                isAdd = false;
+                break;
+            } else if (removeArr3[q] === "-") {
+                isSubtract = false;
+                break;
+            } else if (removeArr3[q] === "*") {
+                isMultiply = false;
+                break;
+            } else if (removeArr3[q] === "/") {
+                isDivide = false;
+                break;
+            }
+        };
+
+        if (isAdd === false) {
+            var result4 = result3 + n5;
+            isAdd = true;
+        } else if (isSubtract === false) {
+            var result4 = result3 - n5;
+            isSubtract = true;
+        } else if (isMultiply === false) {
+            var result4 = result3 * n5;
+            isMultiply = true;
+        } else if (isDivide === false) {
+            var result4 = parseInt(result3 / n5);
+            isDivide = true;
+        }
+        console.log(result4); // 네번째결과 ((((a + b) + c) + d) + e) = ?
+
+        
+
+    </script>
+</body>
+</html>

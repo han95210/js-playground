@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>사칙연산 계산 및 출력</title>
+</head>
+<body>
+    <h2>사칙연산 계산 및 출력</h2>
+    <script>
+        var main = function() {
+            while (true) {
+                var n1 = Number(prompt("숫자만 입력해주세요.(첫번째숫자)"));
+                if (n1 > 0 || n1 === 0 || n1 < 0) {
+                    break;
+                }
+            };
+            
+            while (true) {
+                var n2 = Number(prompt("숫자만 입력해주세요.(두번째숫자)"));
+                if (n2 > 0 || n2 === 0 || n2 < 0) {
+                    break;
+                }
+            };
+
+            document.write(n1 + " + " + n2 + " = " + (n1 + n2) + "<br>");
+            document.write(n1 + " - " + n2 + " = " + (n1 - n2) + "<br>");
+            document.write(n1 + " * " + n2 + " = " + (n1 * n2) + "<br>");
+            document.write(n1 + " / " + n2 + " = " + (n1 / n2) + "<br>");
+        };
+        main();
+
+        
+    
+    </script>
+</body>
+</html>
