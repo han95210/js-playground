@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>구구단 마스터하기</title>
+</head>
+<body>
+    <h1>코딩 레벌업을 위한 구구단 구현</h1>
+    <script>
+        var n1 = Number(prompt("2이상 9이하의 숫자를 2번 입력해주세요.(첫번째숫자)"));
+        while (n1 < 2 || n1 > 9) {
+            n1 = Number(prompt("다시 입력해주세요. 2 이상 9이하의 숫자를 입력해주세요.(첫번째숫자)"));
+            if (n1 >= 2 && n1 <= 9) {
+                break;
+            }
+        } 
+
+        var n2 = Number(prompt("2이상 9이하의 숫자를 2번 입력해주세요.(두번째숫자)"));
+        while (n2 < 2 || n2 > 9) {
+            n2 = Number(prompt("다시 입력해주세요. 2 이상 9이하의 숫자를 입력해주세요.(두번째숫자)"));
+            if (n2 >= 2 && n2 <= 9) {
+                break;
+            }
+        } 
+
+        function gugudanCalc(n1) {
+            var ret = [];
+            for (var i = 0; i < 9; i++) {
+                ret[i] = n1 * (i + 1);
+            }
+        }
+
+        function gugudanPrint(n1, n2) {
+            document.write("<h2>" + n1 + "단</h2>");
+            for (var i = 0; i < 9; i++) {
+                var x = i+1;
+                var y = n1 * x;
+                document.write(n1 + " * " + x + " = " + y + "<br>");
+                if(n2 === x) {
+                    break;
+                }
+            }
+        };
+        function main() {
+            for(var i = 2; i <= n1; i++) {
+                var result = gugudanCalc(i);
+                gugudanPrint(i, n2);
+            }
+        }
+
+        main(n1, n2);
+    </script>
+</body>
+</html>
