@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>문자열 계산기 구현하기</h1>
+    <script>
+        var n1 = Number(prompt("숫자를입력하세요.(첫번째숫자)"));
+        while (true) {
+            if (n1 > 0 || n1 === 0 || n1 < 0) {
+                break;
+            } else {
+                var n1 = Number(prompt("숫자만 입력해주세요.(첫번째숫자)"));
+            }
+        }
+        
+        var n2 = Number(prompt("숫자를입력하세요.(두번째숫자)"));
+        while (true) {
+            if (n2 > 0 || n2 === 0 || n2 < 0) {
+                break;
+            } else {
+                var n2 = Number(prompt("숫자만 입력해주세요.(두번째숫자)"));
+            }
+        }
+        var str = "";
+        var op = prompt("연산자를 입력하세요.");
+        if (op === "+") {
+            str += "더하기 : " + (n1 + n2) + "<br>";
+            } else if (op === "-") {
+                str += "빼기 : " + (n1 - n2) + "<br>";
+            } else if (op === "*") {
+                str += "곱하기 : " + (n1 * n2) + "<br>";
+            } else if (op === "/") {
+                str += "나누기 : " + (n1 / n2) + "<br>";
+            }
+        document.write(str);
+        var result1 = str;
+
+        
+
+    </script>
+    
+</body>
+</html>
