@@ -1,38 +1,33 @@
-var input = {"array": []};
+var input = { "array": [] };
 
-input.getInput = function() {
-    return this.array.join(""); 
+input.getInput = function () {
+    return this.array.join("");
 }
 
 var output = {};
 output.text = document.getElementById('output');
 
 
-var clickNumbers = function(event) {
+var clickNumbers = function (event) {
     var str = event.target.innerHTML;
     console.log(str);
 
-    switch (str) {
-        case 'BS':
+    if (str === "BS") {
         input.array.pop();
-        break;
-        case '+':
-        case '-':
-        case '*':
-        case '/':
-        default:
+    } else if (str === "+" || str === "-" || str === "*" || str === "/") {
+        input.array.push(" " + str + " ");
+    } else {
         input.array.push(str);
     }
 
-    
     if (input.array.length === 0) {
-        output.text.innerHTML = "Empty";    
+        output.text.innerHTML = "Empty";
     } else {
         output.text.innerHTML = input.getInput();
     }
 }
 
-var showResult = function(event) {
+var showResult = function (event) {
     console.log("click others");
     console.log(event.target.innerHTML);
 }
@@ -63,7 +58,7 @@ var showResult = function(event) {
                 return "$";
             }
         };
-        
+
         calculator = {};
         calculator.calculate = function(first, second, op) {
             var ret;
