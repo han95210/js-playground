@@ -1,77 +1,135 @@
-var word1 = document.getElementById('word1');
-var word2 = document.getElementById('word2');
-var check = document.getElementById('check');
+//html element
+var word1 = document.getElementById('word1'); //answer
+var word2 = document.getElementById('word2'); //buttons
+var check = document.getElementById('check'); //word1 === word2 ??
+var progress = document.getElementById('progress'); //progress check
 
-var words = 'apple,linux,javascript,tutorial,codesquad,baby,girlfriend,legend'.split(',');
+//game objects
+var game = { 
+    'btns': [],
+    'maxPlay': 3,
+    'current': 0
+};
+game.words = 'apple,linux,javascript,tutorial,codesquad,baby,girlfriend,legend'.split(',');
 
-var game = {};
-game.choice = function() {
-    var idx = Math.floor(Math.random() * words.length);
-    return words[idx];
+//choose 1 word from words
+game.choose = function () {
+    var idx = Math.floor(Math.random() * this.words.length);
+    this.answer = this.words[idx];
+    this.letters = this.answer.split('');
+    word1.innerHTML = this.answer;
+};
+
+game.addButtons = function () {
+    for (var i = 0; i < this.letters.length; i++) {
+        var btn = document.createElement('button');
+        btn.innerHTML = this.letters[i];
+        word2.appendChild(btn);
+        this.btns.push(btn);
+    }
+};
+game.removeButtons = function() {
+    for (var i = 0; i < this.btns.length; i++) {
+        word2.removeChild(this.btns[i]);
+    }
+    this.btns = [];
 }
-var answer = game.choice();
-word1.innerHTML = answer;
 
-game.word = answer.split('');
-game.btns = [];
-
-game.updateDisplay = function() {
-    if (answer === game.word.join('')) {
+game.checkGood = function() {
+    return this.answer === this.letters.join('');
+}
+game.updateDisplay = function () {
+    if (this.checkGood()) {
         check.innerHTML = "일치합니다.";
     } else {
         check.innerHTML = "일치하지 않습니다.";
     }
 };
 
-for (var i = 0; i < answer.length; i++) {
-    var btn = document.createElement('button');
-    btn.innerHTML = answer[i];
-    word2.appendChild(btn);
-    game.btns.push(btn);
-};
+game.init = function () {
+    this.choose();
+    this.addButtons();
+    this.updateDisplay();
+}
+game.init();
 
-game.copyBtnText = function() {
-    for (var i = 0; i < this.word.length; i++) {
-        this.btns[i].innerHTML = this.word[i];
+game.copyBtnText = function () {
+    for (var i = 0; i < this.letters.length; i++) {
+        this.btns[i].innerHTML = this.letters[i];
     }
 };
 
-var swap = function (event) {
-   var temp = [];
-   //copy and swap
-   while (game.word.length != 0) {
-       var s = game.word.pop();
-       temp.push(s);
-   }
-   
-   game.word = temp;
-   game.copyBtnText();
-   game.updateDisplay();
-};
+game.progress = function() {
+    if(this.checkGood()) {
+        game.current++;
+        game.removeButtons();
+        game.init();
+        game.shuffle();
+        var str = "";
+        for (var i = 0; i < game.current; i++) {
+            str += "O";
+        }
+        progress.innerHTML = str;
+    }
+    if(game.current === game.maxPlay) {
+        alert("Good! Thank you for playing");
+    }
+}
 
-var rshift = function (event) {
-    var s = game.word.pop();
-    game.word.unshift(s);
+game.swap = function() {
+    var temp = [];
+    //copy and swap
+    while (game.letters.length != 0) {
+        var s = game.letters.pop();
+        temp.push(s);
+    }
+
+    game.letters = temp;
     game.copyBtnText();
     game.updateDisplay();
-};
+}
 
-var lshift = function (event) {
-    var s2 = game.word.shift();
-    game.word.push(s2);
+game.rshift = function() {
+    var s = game.letters.pop();
+    game.letters.unshift(s);
     game.copyBtnText();
     game.updateDisplay();
+}
+
+game.lshift = function() {
+    var s2 = game.letters.shift();
+    game.letters.push(s2);
+    game.copyBtnText();
+    game.updateDisplay();
+}
+
+//event handler for swap button
+var swap = function () {
+    game.swap();
+    game.progress();
+};
+
+var rshift = function () {
+    game.rshift();
+    game.progress();
+};
+
+var lshift = function () {
+    game.lshift();
+    game.progress();
 };
 
 // suffle
+game.shuffle = function () {
+    var toggle = Math.floor(Math.random() * 2) === 0;
+    if (toggle) {
+        game.swap();
+    }
 
-var toggle = Math.floor(Math.random() * 2) === 0;
-if (toggle) {
-    swap();
-}
+    var n = Math.floor(Math.random() * (this.btns.length-1));
 
-var n = Math.floor(Math.random() * game.btns.length);
-
-for (var i = 0; i < n; i++) {
-    rshift();
-}
+    for (var i = 0; i < n; i++) {
+        game.rshift();
+    }
+};
+game.shuffle();
